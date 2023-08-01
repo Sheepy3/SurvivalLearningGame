@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://btjbmcq2iqsri"]
+
+[ext_resource type="Texture2D" uid="uid://bqxsjx3wncon7" path="res://Materials/Grass/Grass1.png" id="1_7ux8j"]
+[ext_resource type="PackedScene" uid="uid://b5u5cu6ty0j3v" path="res://player.tscn" id="1_74uao"]
+[ext_resource type="PackedScene" uid="uid://di3ccht672te4" path="res://enemy.tscn" id="3_t851q"]
+[ext_resource type="Resource" uid="uid://500abe2w3d3l" path="res://inventory/inventories/testinv.tres" id="3_yclei"]
+[ext_resource type="PackedScene" uid="uid://cggq8mnypcvao" path="res://inventory/UI.tscn" id="4_w150w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_545kf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_b86br"]
+sky_material = SubResource("ProceduralSkyMaterial_545kf")
+
+[sub_resource type="Environment" id="Environment_x2f56"]
+background_mode = 2
+sky = SubResource("Sky_b86br")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk5cf"]
+albedo_texture = ExtResource("1_7ux8j")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0
+distance_fade_mode = 2
+distance_fade_max_distance = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0c7nd"]
+material = SubResource("StandardMaterial3D_rk5cf")
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yx60i"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x2f56")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+shadow_blur = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0c7nd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_yx60i")
+
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("1_74uao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76186, 0)
+inventory_data = ExtResource("3_yclei")
+
+[node name="Enemy" parent="." instance=ExtResource("3_t851q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27125, 1.18223, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_t851q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38996, 6.25815)
+
+[node name="UI" parent="." instance=ExtResource("4_w150w")]

@@ -1,0 +1,15 @@
+Control
+CanvasLayer
+GridContainer
+MarginContainer
+PanelContainer
+Label
+TextureRect
+Timer
+CollisionShape3D
+Area3D
+MeshInstance3D
+RigidBody3D
+Camera3D
+Node3D
+CharacterBody3D

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bjml7nt2yo7q4"]
+
+[ext_resource type="Script" path="res://Item/item_data.gd" id="1_82f2p"]
+[ext_resource type="Texture2D" uid="uid://cbp7wpgsrmupk" path="res://Materials/Items/Spear.png" id="2_rf88g"]
+
+[resource]
+script = ExtResource("1_82f2p")
+name = "Spear"
+description = "A useful weapon."
+stackable = false
+texture = ExtResource("2_rf88g")

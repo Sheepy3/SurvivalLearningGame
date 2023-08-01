@@ -1,0 +1,16 @@
+res://scene.tscn
+res://player.tscn
+res://enemy.tscn
+res://Item/item_data.gd
+res://inventory/slot_data.gd
+res://inventory/inventory_data.gd
+res://Item/Items/apple.tres
+res://Item/Items/spear.tres
+res://inventory/inventories/testinv.tres
+res://inventory/slot.tscn
+res://inventory/inventory.tscn
+res://inventory/UI.tscn
+res://inventory/inventory.gd
+res://inventory/slot.gd
+res://Player.gd
+res://inventory/inventory_interface.gd

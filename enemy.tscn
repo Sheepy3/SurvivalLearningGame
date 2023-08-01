@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://di3ccht672te4"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_di4u5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qrho"]
+albedo_color = Color(1, 0.00999999, 0.0264997, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_thj6l"]
+material = SubResource("StandardMaterial3D_8qrho")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d7tsl"]
+radius = 0.6
+
+[node name="Enemy" type="RigidBody3D"]
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_di4u5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_thj6l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111891, 0)
+shape = SubResource("CylinderShape3D_d7tsl")

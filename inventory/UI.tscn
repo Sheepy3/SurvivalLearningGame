@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cggq8mnypcvao"]
+
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="1_0qiro"]
+[ext_resource type="PackedScene" uid="uid://dnns8gws8kjnb" path="res://inventory/inventory.tscn" id="1_7l2ca"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="InventoryInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qiro")
+
+[node name="PlayerInventory" parent="InventoryInterface" instance=ExtResource("1_7l2ca")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
