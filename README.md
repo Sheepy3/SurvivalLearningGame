@@ -4,7 +4,7 @@ continuously develop new technology in order to keep monsters at bay which arriv
 
 below is a to-do/roadmap for what I would consider the first alpha release.  
 
-#completed
+# completed
 - basic movement
 - basic attack function
 
