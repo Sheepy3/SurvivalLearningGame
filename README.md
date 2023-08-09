@@ -20,8 +20,8 @@ below is a to-do/roadmap for what I would consider the first alpha release.
 - workbenches
 
 ### vague ideas
-npc teaching
-enemy wave spawning
+- npc teaching
+- enemy wave spawning
 - map generation?
 - caves??
 - **basic neolithic age**
